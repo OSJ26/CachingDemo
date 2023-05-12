@@ -7,6 +7,6 @@ namespace CachingDemo.CommonMethods
 {
     public class CacheKey
     {
-        public static string User => "nfGMsUQjQz";
+        public static string User => "avilable";
     }
 }

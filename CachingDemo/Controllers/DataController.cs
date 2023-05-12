@@ -23,9 +23,7 @@ namespace CachingDemo.Controllers
             if (cache.Contains(cacheKey))
             {
                 var user = cache.Get(cacheKey);
-                CacheItemPolicy chaceitemPoilcy = new CacheItemPolicy();
-                chaceitemPoilcy.AbsoluteExpiration = DateTime.Now.AddHours(1.0);
-                cache.Add(cacheKey, cache, chaceitemPoilcy);
+              
                 return Request.CreateResponse(HttpStatusCode.OK, "Comming From Cache");
             }
             else
@@ -35,6 +33,10 @@ namespace CachingDemo.Controllers
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, objData.getData().Message);
                 }
+                var data =  objData.getData().DataModel;
+                CacheItemPolicy chaceitemPoilcy = new CacheItemPolicy();
+                chaceitemPoilcy.AbsoluteExpiration = DateTime.Now.AddHours(1.0);
+                cache.Add(cacheKey, data, chaceitemPoilcy);
                 return Request.CreateResponse(HttpStatusCode.OK, objData.getData().DataModel);
 
             }
