@@ -12,6 +12,7 @@ namespace CachingDemo.Controllers
     public class DataController : ApiController
     {
         BLgetData objData = new BLgetData();
+
         [HttpGet]
         [Route("getData")]
         public HttpResponseMessage getUserData()
@@ -28,9 +29,9 @@ namespace CachingDemo.Controllers
                 return Request.CreateResponse(HttpStatusCode.OK, "Comming From Cache");
             }
             else
-            { 
+            {
 
-            if (objData.getData().IsError == true)
+                if (objData.getData().IsError == true)
                 {
                     return Request.CreateErrorResponse(HttpStatusCode.NotFound, objData.getData().Message);
                 }
