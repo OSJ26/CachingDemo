@@ -1,6 +1,5 @@
 ﻿using CachingDemo.Bl;
 using CachingDemo.CommonMethods;
-using CachingDemo.Models;
 using System;
 using System.Net;
 using System.Net.Http;
@@ -15,6 +14,9 @@ namespace CachingDemo.Controllers
 
         [HttpGet]
         [Route("getData")]
+        ///This is contoller level we can enable cors 
+        ///for particular controller
+        ///[EnableCors("*","*","*")]
         public HttpResponseMessage getUserData()
         {
             var cache = MemoryCache.Default;
@@ -24,7 +26,7 @@ namespace CachingDemo.Controllers
             {
                 var user = cache.Get(cacheKey);
               
-                return Request.CreateResponse(HttpStatusCode.OK, "Comming From Cache");
+                return Request.CreateResponse(HttpStatusCode.OK, "Comming From Cache" + objData.getData().DataModel);
             }
             else
             {

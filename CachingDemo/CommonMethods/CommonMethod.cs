@@ -1,10 +1,6 @@
 ﻿using ServiceStack.OrmLite;
-using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
-using System.Linq;
-using System.Web;
 
 namespace CachingDemo.CommonMethods
 {

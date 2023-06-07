@@ -1,12 +1,5 @@
 ﻿using CachingDemo.DBContext;
 using CachingDemo.Models;
-using Org.BouncyCastle.Asn1.Ocsp;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http;
-using System.Web.Http;
 
 namespace CachingDemo.Bl
 {
@@ -21,7 +14,7 @@ namespace CachingDemo.Bl
             if (objResponse.DataModel != null)
             {
                 objResponse.IsError = false;
-                objResponse.Message = "Succussfullt get data";
+                objResponse.Message = "Succussfully get data";
                 return objResponse;
             }
             else { 
